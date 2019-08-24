@@ -1,2 +1,2 @@
-This is a repository full of good decorators.
+easy and fun decorators! good for practice
 Hope you can enjoy it all!!
