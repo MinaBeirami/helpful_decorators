@@ -4,6 +4,12 @@ from datetime import datetime
 """
     second-version
     3 callables inside each other.
+    first callable (wrapper) take  arguments of a callable(here is the callable
+    is "function")
+    second callable(decorated) takes a callable( here the callable is
+    "wrapper")
+    third callable (decorator) takes a callable(callable) (here the callable->
+    callabe is decorated(wrapper) )
 
 """
 
