@@ -1,43 +1,38 @@
-
-
 from datetime import datetime
-"""
+
+'''
     second-version
     3 callables inside each other.
-    first callable (wrapper) take  arguments of a callable(here is the callable
-    is "function")
+    first callable (wrapper) take  arguments of a callable(here is the
+    callable is "function")
     second callable(decorated) takes a callable( here the callable is
     "wrapper")
     third callable (decorator) takes a callable(callable) (here the callable->
     callabe is decorated(wrapper) )
+'''
 
-"""
+def time_this(unit=None):
 
-def decorator(unit=None):
-
-    def decorated(function):
+    def decorator(function):
 
         def wrapper():
-
-            tic=datetime.now().time().microsecond
-#            print(tic)
+            tic = datetime.now().time().microsecond
             function()
-            toc=datetime.now().time().microsecond
-#            print(toc)
-            time=toc-tic
-#            print(unit)
-            print (time,'micro second.')
+            toc = datetime.now().time().microsecond
+            time = toc - tic
+            print(time, 'micro second.')
         return wrapper
 
     if callable(unit):
-        return decorated(unit)
+        return decorator(unit)
     else:
-        return decorated
+        return decorator
 
-@decorator
-@decorator()
-@decorator('ms')
+@time_this
+#@time_this()
+#@time_this('ms')
 def function():
     print ("i am function")
 
 function()
+
